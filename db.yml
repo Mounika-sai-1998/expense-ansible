@@ -4,9 +4,9 @@
   vars:
     local_host: db.mounikasai.shop
   vars_prompt:
-    - name: mysql_root_password
-      prompt: please enter password:
-      private: no
+  - name: mysql_root_password
+    prompt: please enter password:
+    private: no
   tasks:
   - name: install mysql server
     ansible.builtin.dnf:
