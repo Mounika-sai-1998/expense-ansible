@@ -1,0 +1,29 @@
+- name: configure db server
+  become: yes
+  hosts: db
+  vars:
+    local_host: db.mounikasai.shop
+  tasks:
+  - name: install mysql server
+    ansible.builtin.dnf:
+      name: mysql-server
+      state: latest
+
+  - name: start and enable mysql
+    ansible.builtin.service:
+      name: mysqld
+      state: started
+      enabled: yes
+  # to check password setup or not
+  - name: check db connection 
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: ExpenseApp@1
+      local_host: "{{ local_host }}"
+      filter: version
+    ignore_errors: yes
+    register: mysql_connection_output
+
+  - name: output
+    ansible.builtin.debug:
+      msg: "output is {{mysql_connection_output}} "
