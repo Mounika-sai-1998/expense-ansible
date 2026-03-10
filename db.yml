@@ -20,7 +20,7 @@
       enabled: yes
 
   - name: install python mysql dependencies
-    ansible.builtin.pip:
+    ansible.builtin.pip:    # to built mysql db from ansible 
       name:
       - PyMySQL
       - cryptography
@@ -43,3 +43,5 @@
   - name: set up password
     ansible.builtin.command: "mysql_secure_installation --set-root-pass {{ mysql_root_password }}"
     when: mysql_connection_output.failed is true
+
+  

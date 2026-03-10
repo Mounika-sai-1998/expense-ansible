@@ -31,9 +31,23 @@
     ansible.builtin.unarchive:
       src: /tmp/backend.zip   # by default it checks in ansible server
       dest: /app
-      remote_src: yes
+      remote_src: yes   # it is to make changes in remote server
 
   - name: install npm packages
     ansible.builtin.command: npm install
     args:
       chdir: /app    # to change directory to app
+
+  - name: copy the backend service
+    ansible.builtin.copy:
+      src: backend.service
+      dest: /etc/systemd/system/backend.service
+
+  # - name: install python mysql dependencies
+  #   ansible.builtin.pip:    # to built mysql db from ansible 
+  #     name:
+  #     - PyMySQL
+  #     - cryptography
+  #     executable: pip3.9
+
+  - name: 
