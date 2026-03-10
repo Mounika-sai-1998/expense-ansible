@@ -10,5 +10,5 @@
 
   - name: install nodejs
     ansible.builtin.dnf:
-      name: nodsjs
+      name: nodejs
       state: latest
