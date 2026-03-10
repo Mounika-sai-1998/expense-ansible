@@ -27,3 +27,4 @@
     ansible.builtin.unarchive:
       path: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
       src: /usr/share/nginx/html
+      remote_src: yes
