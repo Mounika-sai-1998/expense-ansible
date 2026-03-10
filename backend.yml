@@ -4,4 +4,6 @@
   tasks:
   - name: disabiling default nodejs
     ansible.builtin.command: dnf module disable nodejs -y
-    
+
+  - name: enabliling nodejs:20
+    ansible.builtin.command: dnf module enable nodejs:20 -y
