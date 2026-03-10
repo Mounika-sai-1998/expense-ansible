@@ -6,8 +6,14 @@
     ansible.builtin.dnf:
       name: nginx
       state: latest
-  - name: satrt and enable nginx
+
+  - name: start and enable nginx
     ansible.builtin.service:
       name: nginx
       state: started
       enabled: yes
+
+  - name: removing the webiste
+    ansible.builtin.file:
+      path: /usr/share/nginx/html/*
+      state: absent
