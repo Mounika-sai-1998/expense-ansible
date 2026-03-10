@@ -43,11 +43,11 @@
       src: backend.service
       dest: /etc/systemd/system/backend.service
 
-  # - name: install python mysql dependencies
-  #   ansible.builtin.pip:    # to built mysql db from ansible 
-  #     name:
-  #     - PyMySQL
-  #     - cryptography
-  #     executable: pip3.9
+  - name: install python mysql dependencies
+    ansible.builtin.pip:    # to built mysql db from ansible 
+      name:
+      - PyMySQL
+      - cryptography
+      executable: pip3.9
 
   
